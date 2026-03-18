@@ -1,0 +1,119 @@
+<section class="who-for section section--dark" id="whofor-section" aria-label="Who Is It For">
+  <div class="container">
+    <h2 class="heading-lg text-center reveal heading-animate" style="margin-bottom: 48px;">
+      {{ section.settings.title | default: 'Real People. Real Performance.' }}
+    </h2>
+
+    <div class="who-for__grid">
+      <!-- Yoga -->
+      <div class="who-for__card reveal stagger-1">
+        <img
+          src="{{ 'pexels-alexy-almond-3758156.jpg' | asset_url }}"
+          alt="Woman doing yoga side stretch - creatine for flexibility and recovery"
+          width="400"
+          height="533"
+          loading="lazy"
+        >
+        <div class="who-for__overlay">
+          <h3 class="who-for__overlay-title">{{ section.settings.card_1_title | default: 'Yoga' }}</h3>
+          <p class="who-for__overlay-sub">{{ section.settings.card_1_sub | default: 'Flexibility & Recovery' }}</p>
+        </div>
+      </div>
+
+      <!-- Strength -->
+      <div class="who-for__card reveal stagger-2">
+        <img
+          src="{{ 'pexels-tima-miroshnichenko-6389075.jpg' | asset_url }}"
+          alt="Man doing battle ropes workout - creatine for strength training"
+          width="400"
+          height="533"
+          loading="lazy"
+        >
+        <div class="who-for__overlay">
+          <h3 class="who-for__overlay-title">{{ section.settings.card_2_title | default: 'Strength' }}</h3>
+          <p class="who-for__overlay-sub">{{ section.settings.card_2_sub | default: 'Power & Growth' }}</p>
+        </div>
+      </div>
+
+      <!-- Endurance -->
+      <div class="who-for__card reveal stagger-3">
+        <img
+          src="{{ 'pexels-maksgelatin-4348638.jpg' | asset_url }}"
+          alt="Woman runner mid-leap - creatine for endurance and performance"
+          width="400"
+          height="533"
+          loading="lazy"
+        >
+        <div class="who-for__overlay">
+          <h3 class="who-for__overlay-title">{{ section.settings.card_3_title | default: 'Endurance' }}</h3>
+          <p class="who-for__overlay-sub">{{ section.settings.card_3_sub | default: 'Speed & Stamina' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="who-for__bottom reveal stagger-4">
+      {{ section.settings.bottom_text | default: 'For Runners, Lifters, Yogis, Weekend Warriors, and Everyday Athletes' }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Who Is It For",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Real People. Real Performance."
+    },
+    {
+      "type": "text",
+      "id": "card_1_title",
+      "label": "Card 1 Title",
+      "default": "Yoga"
+    },
+    {
+      "type": "text",
+      "id": "card_1_sub",
+      "label": "Card 1 Subtitle",
+      "default": "Flexibility & Recovery"
+    },
+    {
+      "type": "text",
+      "id": "card_2_title",
+      "label": "Card 2 Title",
+      "default": "Strength"
+    },
+    {
+      "type": "text",
+      "id": "card_2_sub",
+      "label": "Card 2 Subtitle",
+      "default": "Power & Growth"
+    },
+    {
+      "type": "text",
+      "id": "card_3_title",
+      "label": "Card 3 Title",
+      "default": "Endurance"
+    },
+    {
+      "type": "text",
+      "id": "card_3_sub",
+      "label": "Card 3 Subtitle",
+      "default": "Speed & Stamina"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "For Runners, Lifters, Yogis, Weekend Warriors, and Everyday Athletes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Who Is It For"
+    }
+  ]
+}
+{% endschema %}

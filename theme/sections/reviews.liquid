@@ -1,0 +1,48 @@
+<section class="reviews section section--deep" id="reviews-section" aria-label="Customer Reviews">
+  <div class="container">
+    <div class="reviews__header reveal">
+      <h2 class="heading-lg" style="margin-bottom: 16px;">
+        {{ section.settings.title | default: 'What Athletes Are Saying' }}
+      </h2>
+      <div class="reviews__stars" aria-label="4.7 out of 5 stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" opacity="0.4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="reviews__count text-muted">4.7/5 (30+ Reviews)</p>
+    </div>
+
+    <!-- Carousel -->
+    <div class="reviews__carousel" id="reviewsCarousel">
+      <div class="reviews__track" id="reviewsTrack">
+        {% render 'review-card', text: 'Brilliant quality creatine. Dissolves perfectly in water, no gritty texture at all. Been using it for 6 weeks and can already notice the difference in my lifts. Great value for money too.', author: 'James T.', stars: 5 %}
+        {% render 'review-card', text: 'Finally a creatine that actually mixes well. I add it to my morning protein shake and you can\'t taste a thing. UK made is a big plus for me. Will definitely reorder.', author: 'Sophie M.', stars: 5 %}
+        {% render 'review-card', text: 'Been taking creatine for years and this is up there with the best. Pure, clean, no nonsense. The tub lasts ages too — 120 servings is excellent. Highly recommend.', author: 'Marcus D.', stars: 5 %}
+        {% render 'review-card', text: 'I was nervous to try creatine as a woman but did my research and this brand ticked all the boxes. Vegan, no fillers, made in the UK. I feel stronger in my workouts and recovery is noticeably better.', author: 'Priya K.', stars: 5 %}
+        {% render 'review-card', text: 'Good product, does what it says. Mixes well, no taste. Only wish the scoop was included inside the tub rather than on top. Still, great creatine at a fair price.', author: 'Tom W.', stars: 4 %}
+        {% render 'review-card', text: 'Switched from a more expensive brand and honestly can\'t tell the difference. Clean ingredients, fast delivery, and the price is spot on. My go-to creatine now.', author: 'Charlotte R.', stars: 5 %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "What Athletes Are Saying"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews"
+    }
+  ]
+}
+{% endschema %}

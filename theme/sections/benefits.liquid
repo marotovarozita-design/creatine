@@ -1,0 +1,110 @@
+<section class="benefits section section--deep" id="benefits-section" aria-label="Key Benefits">
+  <div class="container">
+    <!-- Stats Counter -->
+    <div class="benefits__stats">
+      <div class="stat-item reveal">
+        <div class="stat-item__number" data-count="5">0</div>
+        <div class="stat-item__label">g Per Serving</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item reveal stagger-1">
+        <div class="stat-item__number" data-count="120">0</div>
+        <div class="stat-item__label">Servings</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item reveal stagger-2">
+        <div class="stat-item__number" data-count="600">0</div>
+        <div class="stat-item__label">Grams</div>
+      </div>
+    </div>
+
+    <!-- Benefit Cards -->
+    <div class="benefits__grid">
+      {% render 'benefit-card',
+        icon: 'strength',
+        title: section.settings.benefit_1_title | default: 'Boost Strength',
+        text: section.settings.benefit_1_text | default: 'Creatine increases phosphocreatine stores in your muscles, fuelling ATP production for explosive strength during high-intensity training.',
+        delay: '1'
+      %}
+      {% render 'benefit-card',
+        icon: 'muscle',
+        title: section.settings.benefit_2_title | default: 'Build Muscle',
+        text: section.settings.benefit_2_text | default: 'Support muscle growth and recovery by regenerating your body\'s primary energy source. Train harder, recover faster.',
+        delay: '2'
+      %}
+      {% render 'benefit-card',
+        icon: 'energy',
+        title: section.settings.benefit_3_title | default: 'Improve Energy Output',
+        text: section.settings.benefit_3_text | default: 'Enhance your endurance and reduce fatigue during repeated bouts of intense exercise. Push through when it counts.',
+        delay: '3'
+      %}
+      {% render 'benefit-card',
+        icon: 'brain',
+        title: section.settings.benefit_4_title | default: 'Enhance Cognitive Function',
+        text: section.settings.benefit_4_text | default: 'Emerging research shows creatine supports brain energy metabolism, helping with focus and mental clarity during demanding tasks.',
+        delay: '4'
+      %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Key Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "benefit_1_title",
+      "label": "Benefit 1 Title",
+      "default": "Boost Strength"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit_1_text",
+      "label": "Benefit 1 Text",
+      "default": "Creatine increases phosphocreatine stores in your muscles, fuelling ATP production for explosive strength during high-intensity training."
+    },
+    {
+      "type": "text",
+      "id": "benefit_2_title",
+      "label": "Benefit 2 Title",
+      "default": "Build Muscle"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit_2_text",
+      "label": "Benefit 2 Text",
+      "default": "Support muscle growth and recovery by regenerating your body's primary energy source. Train harder, recover faster."
+    },
+    {
+      "type": "text",
+      "id": "benefit_3_title",
+      "label": "Benefit 3 Title",
+      "default": "Improve Energy Output"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit_3_text",
+      "label": "Benefit 3 Text",
+      "default": "Enhance your endurance and reduce fatigue during repeated bouts of intense exercise. Push through when it counts."
+    },
+    {
+      "type": "text",
+      "id": "benefit_4_title",
+      "label": "Benefit 4 Title",
+      "default": "Enhance Cognitive Function"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit_4_text",
+      "label": "Benefit 4 Text",
+      "default": "Emerging research shows creatine supports brain energy metabolism, helping with focus and mental clarity during demanding tasks."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Key Benefits"
+    }
+  ]
+}
+{% endschema %}

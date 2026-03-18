@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Vitali8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../theme/assets/base.css">
+  <link rel="stylesheet" href="../theme/assets/sections.css">
+  <link rel="stylesheet" href="../theme/assets/animations.css">
+</head>
+<body>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header scrolled" id="siteHeader">
+    <div class="header__inner">
+      <a href="/preview/" class="header__logo" aria-label="Vitali8">
+        <img src="../theme/assets/logo-white.png" alt="Vitali8" width="140" height="40" loading="eager">
+      </a>
+      <nav class="header__nav" aria-label="Main navigation">
+        <a href="/preview/" class="header__link">Home</a>
+        <a href="/preview/" class="header__link">Benefits</a>
+        <a href="/preview/" class="header__link">FAQ</a>
+        <a href="/preview/" class="btn btn--primary btn--small">Shop Now</a>
+      </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+
+    <!-- Cart Section -->
+    <section class="cart-page section section--deep" id="cart-section" aria-label="Shopping Cart">
+      <div class="container">
+        <h1 class="heading-lg" style="margin-bottom: 40px;">Your Cart</h1>
+
+        <!-- Volume Discount Banner -->
+        <div class="volume-discount" id="volumeDiscount">
+          <div class="volume-discount__tier volume-discount__tier--active" data-tier="1">
+            <span class="volume-discount__qty">1 Tub</span>
+            <span class="volume-discount__label">Standard</span>
+            <span class="volume-discount__price">&pound;19.99</span>
+          </div>
+          <div class="volume-discount__tier" data-tier="2">
+            <span class="volume-discount__qty">2 Tubs</span>
+            <span class="volume-discount__label">Save 10%</span>
+            <span class="volume-discount__price">&pound;17.99 <small>each</small></span>
+          </div>
+          <div class="volume-discount__tier" data-tier="3">
+            <span class="volume-discount__qty">3 Tubs</span>
+            <span class="volume-discount__label">Save 20%</span>
+            <span class="volume-discount__price">&pound;15.99 <small>each</small></span>
+          </div>
+        </div>
+
+        <!-- Cart Items -->
+        <div class="cart-items">
+          <div class="cart-item glass-card">
+            <div class="cart-item__image">
+              <img src="../theme/assets/product-hero.jpg" alt="Vitali8 Creatine Monohydrate Powder 600g" width="120" height="120" loading="lazy">
+            </div>
+            <div class="cart-item__details">
+              <h3 class="cart-item__title">Vitali8 Creatine Monohydrate Powder 600g</h3>
+              <p class="cart-item__variant text-muted">600g | Unflavoured</p>
+              <div class="cart-item__quantity">
+                <div class="quantity-selector">
+                  <button class="quantity-selector__btn" data-action="minus" aria-label="Decrease quantity">-</button>
+                  <div class="quantity-selector__value">1</div>
+                  <button class="quantity-selector__btn" data-action="plus" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="cart-item__price">
+              <span class="cart-item__price-current" data-item-price>&pound;19.99</span>
+              <button class="cart-item__remove" aria-label="Remove item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="cart-summary glass-card">
+          <div class="cart-summary__row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">&pound;19.99</span>
+          </div>
+          <div class="cart-summary__savings" id="cartSavings" style="display: none;">
+            <span>YOU SAVE</span>
+            <span id="cartSavingsAmount">&pound;0.00</span>
+          </div>
+          <div class="cart-summary__row cart-summary__row--total">
+            <span>Total</span>
+            <span id="cartTotal">&pound;19.99</span>
+          </div>
+          <p class="cart-summary__shipping-note">Prices shown in GBP. Ships to all European countries.</p>
+          <a href="#" class="btn btn--primary btn--full btn--large" style="margin-top: 20px;">CHECKOUT</a>
+          <p class="cart-summary__delivery">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Free UK Delivery
+          </p>
+        </div>
+
+        <!-- Upsell Strip -->
+        <div class="cart-upsell">
+          <h2 class="cart-upsell__title">You Might Also Like</h2>
+          <div class="cart-upsell__product glass-card">
+            <div class="cart-upsell__image">
+              <img src="../theme/assets/product-hero.jpg" alt="Vitali8 Creatine Monohydrate Powder 600g" width="100" height="100" loading="lazy">
+            </div>
+            <div class="cart-upsell__info">
+              <h3 class="cart-upsell__name">Vitali8 Creatine Monohydrate Powder 600g</h3>
+              <p class="cart-upsell__desc text-muted">120 servings of pure, micronised creatine monohydrate.</p>
+              <span class="cart-upsell__price">&pound;19.99</span>
+            </div>
+            <div class="cart-upsell__action">
+              <button class="btn btn--outline btn--small" id="upsellAddBtn" type="button">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" aria-label="Footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <a href="/preview/" class="footer__logo" aria-label="Vitali8">
+          <img src="../theme/assets/logo-white.png" alt="Vitali8" width="140" height="48" loading="lazy">
+        </a>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="/preview/">Shop</a>
+          <a href="/preview/">About</a>
+          <a href="/preview/">FAQ</a>
+          <a href="mailto:hello@vitali8.co.uk">Contact</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__legal"><a href="#">Terms</a><a href="#">Privacy Policy</a></div>
+        <p class="footer__copyright">&copy; 2026 Vitali8. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    'use strict';
+
+    const BASE_PRICE = 19.99;
+    const TIERS = { 1: 1.0, 2: 0.90, 3: 0.80 };
+
+    function getTierDiscount(qty) {
+      if (qty >= 3) return TIERS[3];
+      if (qty >= 2) return TIERS[2];
+      return TIERS[1];
+    }
+
+    function updateVolumeDisplay(qty) {
+      document.querySelectorAll('.volume-discount__tier').forEach(function(tier) {
+        var tierNum = parseInt(tier.getAttribute('data-tier'), 10);
+        tier.classList.toggle('volume-discount__tier--active',
+          (tierNum === 1 && qty === 1) ||
+          (tierNum === 2 && qty === 2) ||
+          (tierNum === 3 && qty >= 3)
+        );
+      });
+
+      var discount = getTierDiscount(qty);
+      var perTub = BASE_PRICE * discount;
+      var total = perTub * qty;
+      var fullPrice = BASE_PRICE * qty;
+      var savings = fullPrice - total;
+
+      var subtotalEl = document.getElementById('cartSubtotal');
+      var totalEl = document.getElementById('cartTotal');
+      var savingsEl = document.getElementById('cartSavings');
+      var savingsAmountEl = document.getElementById('cartSavingsAmount');
+
+      if (subtotalEl) subtotalEl.textContent = '\u00A3' + total.toFixed(2);
+      if (totalEl) totalEl.textContent = '\u00A3' + total.toFixed(2);
+
+      if (savings > 0 && savingsEl && savingsAmountEl) {
+        savingsEl.style.display = 'flex';
+        savingsAmountEl.textContent = '\u00A3' + savings.toFixed(2);
+      } else if (savingsEl) {
+        savingsEl.style.display = 'none';
+      }
+    }
+
+    document.querySelectorAll('.cart-item .quantity-selector__btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var action = this.getAttribute('data-action');
+        var valueEl = this.closest('.quantity-selector').querySelector('.quantity-selector__value');
+        var qty = parseInt(valueEl.textContent, 10) || 1;
+
+        if (action === 'plus') qty++;
+        if (action === 'minus' && qty > 1) qty--;
+        valueEl.textContent = qty;
+
+        var newTotal = 0;
+        document.querySelectorAll('.cart-item .quantity-selector__value').forEach(function(el) {
+          newTotal += parseInt(el.textContent, 10) || 0;
+        });
+
+        var priceEl = this.closest('.cart-item').querySelector('[data-item-price]');
+        if (priceEl) {
+          var discount = getTierDiscount(newTotal);
+          priceEl.textContent = '\u00A3' + (BASE_PRICE * discount * qty).toFixed(2);
+        }
+
+        updateVolumeDisplay(newTotal);
+      });
+    });
+
+    // Cursor
+    if (!('ontouchstart' in window)) {
+      var dot = document.getElementById('cursorDot');
+      var ring = document.getElementById('cursorRing');
+      if (dot && ring) {
+        var mx = 0, my = 0, dx = 0, dy = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; }, {passive:true});
+        (function anim() {
+          dx += (mx - dx) * 0.5; dy += (my - dy) * 0.5;
+          dot.style.transform = 'translate(' + (dx-4) + 'px,' + (dy-4) + 'px)';
+          rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
+          ring.style.transform = 'translate(' + (rx-16) + 'px,' + (ry-16) + 'px)';
+          requestAnimationFrame(anim);
+        })();
+        document.querySelectorAll('a,button,.glass-card').forEach(function(el) {
+          el.addEventListener('mouseenter', function() { ring.classList.add('expanded'); });
+          el.addEventListener('mouseleave', function() { ring.classList.remove('expanded'); });
+        });
+      }
+    }
+
+    // Nav scroll
+    var header = document.getElementById('siteHeader');
+    if (header) {
+      window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+      }, {passive:true});
+    }
+  })();
+  </script>
+</body>
+</html>

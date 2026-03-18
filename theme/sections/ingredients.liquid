@@ -1,0 +1,58 @@
+<section class="ingredients section section--contrast" id="ingredients-section" aria-label="Ingredients">
+  <div class="container">
+    <div class="ingredients__hero-stat">
+      <span class="ingredients__big-number reveal-scale">1</span>
+      <span class="ingredients__big-text reveal-left">Ingredient</span>
+    </div>
+
+    <h2 class="ingredients__subtitle heading-sm reveal">
+      {{ section.settings.subtitle | default: '100% Pure Creatine Monohydrate' }}
+    </h2>
+
+    <p class="text-muted text-center reveal" style="max-width: 560px; margin: 0 auto 48px; font-size: 1rem; line-height: 1.7;">
+      {{ section.settings.description | default: 'One ingredient. Zero compromises. Every scoop delivers 5g of pure creatine monohydrate, micronised for fast absorption and smooth mixing.' }}
+    </p>
+
+    <!-- Stat Pills -->
+    <div class="ingredients__pills">
+      <span class="pill reveal stagger-1">1 Scoop = 5g</span>
+      <span class="pill reveal stagger-2">120 Servings</span>
+      <span class="pill reveal stagger-3">600g Net</span>
+    </div>
+
+    <!-- Clean Label Tags -->
+    <div class="ingredients__tags">
+      <span class="tag reveal stagger-1">Vegan</span>
+      <span class="tag reveal stagger-2">Unflavoured</span>
+      <span class="tag reveal stagger-3">No Fillers</span>
+      <span class="tag reveal stagger-4">No Sweeteners</span>
+      <span class="tag reveal stagger-5">No Artificial Colours</span>
+      <span class="tag reveal stagger-6">Sugar Free</span>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "100% Pure Creatine Monohydrate"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "One ingredient. Zero compromises. Every scoop delivers 5g of pure creatine monohydrate, micronised for fast absorption and smooth mixing."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients"
+    }
+  ]
+}
+{% endschema %}

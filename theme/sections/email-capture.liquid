@@ -1,0 +1,74 @@
+<section class="email-capture section anim-gradient" id="email-section" aria-label="Join the Waitlist">
+  <div class="container">
+    <div class="email-capture__inner">
+      <h2 class="email-capture__title heading-lg reveal">
+        {{ section.settings.title | default: 'More From Vitali8 Coming Soon' }}
+      </h2>
+      <p class="email-capture__subtitle reveal stagger-1">
+        {{ section.settings.subtitle | default: 'Our range is expanding. Be the first to know.' }}
+      </p>
+
+      <form class="email-capture__form reveal stagger-2" id="emailCaptureForm" action="#" method="post">
+        <input
+          class="email-capture__input"
+          type="email"
+          name="email"
+          placeholder="{{ section.settings.placeholder | default: 'Enter your email' }}"
+          required
+          aria-label="Email address"
+          autocomplete="email"
+        >
+        <button class="email-capture__submit" type="submit" id="emailSubmitBtn">
+          {{ section.settings.cta | default: 'JOIN THE WAITLIST' }}
+        </button>
+      </form>
+
+      <p class="email-capture__social-proof reveal stagger-3">
+        {{ section.settings.social_proof | default: 'Join 500+ athletes already on the list' }}
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Email Capture",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "More From Vitali8 Coming Soon"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our range is expanding. Be the first to know."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "cta",
+      "label": "Button Text",
+      "default": "JOIN THE WAITLIST"
+    },
+    {
+      "type": "text",
+      "id": "social_proof",
+      "label": "Social Proof Text",
+      "default": "Join 500+ athletes already on the list"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Email Capture"
+    }
+  ]
+}
+{% endschema %}

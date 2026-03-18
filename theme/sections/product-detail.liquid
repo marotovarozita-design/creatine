@@ -1,0 +1,144 @@
+<section class="product-detail section section--dark" id="product-section" aria-label="Product Details">
+  <div class="container">
+    <div class="product-detail__inner">
+      <!-- Gallery -->
+      <div class="product-gallery reveal-left">
+        <div class="product-gallery__main anim-float">
+          <img
+            id="mainProductImage"
+            src="{{ 'product-hero.jpg' | asset_url }}"
+            alt="Vitali8 Creatine Monohydrate Powder 600g - front view"
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-gallery__thumbs">
+          <button class="product-gallery__thumb active" data-image="{{ 'product-hero.jpg' | asset_url }}" aria-label="Front view">
+            <img src="{{ 'product-hero.jpg' | asset_url }}" alt="Front view" width="120" height="120" loading="lazy">
+          </button>
+          <button class="product-gallery__thumb" data-image="{{ 'product-benefits.jpg' | asset_url }}" aria-label="Benefits view">
+            <img src="{{ 'product-benefits.jpg' | asset_url }}" alt="Benefits view" width="120" height="120" loading="lazy">
+          </button>
+          <button class="product-gallery__thumb" data-image="{{ 'product-ingredients.jpg' | asset_url }}" aria-label="Ingredients view">
+            <img src="{{ 'product-ingredients.jpg' | asset_url }}" alt="Ingredients view" width="120" height="120" loading="lazy">
+          </button>
+          <button class="product-gallery__thumb" data-image="{{ 'product-lifestyle.jpg' | asset_url }}" aria-label="Lifestyle view">
+            <img src="{{ 'product-lifestyle.jpg' | asset_url }}" alt="Lifestyle view" width="120" height="120" loading="lazy">
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info reveal-right">
+        <h2 class="product-info__title heading-md">{{ section.settings.title | default: 'Vitali8 Creatine Monohydrate Powder 600g' }}</h2>
+
+        <div class="product-info__price">
+          <span class="product-info__price-main">&pound;{{ section.settings.price | default: '19.99' }}</span>
+          <span class="product-info__price-unit">per tub</span>
+        </div>
+
+        <div class="product-info__serving-cost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Just 17p per serving
+        </div>
+
+        <p class="product-info__description">{{ section.settings.description | default: '120 servings of pure, micronised creatine monohydrate. 5g per scoop. Unflavoured, fast-dissolving, zero fillers. Made in the UK.' }}</p>
+
+        <ul class="product-info__bullets">
+          <li class="product-info__bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            5g pure creatine monohydrate per serving
+          </li>
+          <li class="product-info__bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            120 servings per tub (4-month supply)
+          </li>
+          <li class="product-info__bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Micronised for instant mixing, no grit
+          </li>
+          <li class="product-info__bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Unflavoured, stacks with any drink
+          </li>
+          <li class="product-info__bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            UK manufactured, lab tested
+          </li>
+          <li class="product-info__bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Vegan friendly, no artificial additives
+          </li>
+        </ul>
+
+        <!-- Quantity Selector -->
+        <div class="quantity-selector">
+          <button class="quantity-selector__btn" id="qtyMinus" aria-label="Decrease quantity">-</button>
+          <div class="quantity-selector__value" id="qtyValue" aria-live="polite">1</div>
+          <button class="quantity-selector__btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+
+        <!-- Add to Cart -->
+        <div class="product-info__add-btn">
+          <button class="btn btn--primary btn--full btn--large" id="addToCartBtn" type="button">
+            ADD TO CART
+          </button>
+        </div>
+
+        <!-- Free Delivery -->
+        <div class="product-info__delivery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Free UK Delivery
+        </div>
+
+        <!-- Trust Items -->
+        <div class="product-info__trust-list">
+          <div class="product-info__trust-item reveal stagger-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Manufactured in the UK under strict quality standards
+          </div>
+          <div class="product-info__trust-item reveal stagger-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Lab tested for purity - every batch verified
+          </div>
+          <div class="product-info__trust-item reveal stagger-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            100% vegan, sugar-free, no fillers
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Detail",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Product Title",
+      "default": "Vitali8 Creatine Monohydrate Powder 600g"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price",
+      "default": "19.99"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Short Description",
+      "default": "120 servings of pure, micronised creatine monohydrate. 5g per scoop. Unflavoured, fast-dissolving, zero fillers. Made in the UK."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Detail"
+    }
+  ]
+}
+{% endschema %}

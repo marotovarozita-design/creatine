@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "product-detail": {
+      "type": "product-detail",
+      "settings": {}
+    },
+    "benefits": {
+      "type": "benefits",
+      "settings": {}
+    },
+    "how-to-use": {
+      "type": "how-to-use",
+      "settings": {}
+    },
+    "why-creatine": {
+      "type": "why-creatine",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "product-detail",
+    "benefits",
+    "how-to-use",
+    "why-creatine",
+    "reviews",
+    "faq"
+  ]
+}

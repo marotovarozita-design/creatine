@@ -1,0 +1,147 @@
+<section class="how-to-use section section--contrast" id="howto-section" aria-label="How to Use">
+  <div class="container">
+    <h2 class="heading-lg text-center reveal" style="margin-bottom: 60px;">
+      {{ section.settings.title | default: 'Simple. Effective. Daily.' }}
+    </h2>
+
+    <!-- SVG Gradient Definition -->
+    <svg width="0" height="0" style="position: absolute;">
+      <defs>
+        <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6B21A8" />
+          <stop offset="100%" stop-color="#8B5CF6" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <div class="how-to-use__steps">
+      <!-- Connecting Line -->
+      <svg class="how-to-use__connector" viewBox="0 0 100 4" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="0" y1="2" x2="100" y2="2" stroke-dasharray="4 4" stroke="#6B21A8" stroke-width="2" vector-effect="non-scaling-stroke"/>
+      </svg>
+
+      <!-- Step 1 -->
+      <div class="step reveal stagger-1" data-step="1">
+        <div class="step__circle">
+          <svg class="circle-border" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="38" />
+          </svg>
+          <span class="step__number">1</span>
+        </div>
+        <div class="step__icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M20 5 L25 20 L15 20 Z"/>
+            <line x1="20" y1="20" x2="20" y2="35"/>
+          </svg>
+        </div>
+        <h3 class="step__title">{{ section.settings.step_1_title | default: 'Scoop' }}</h3>
+        <p class="step__text">{{ section.settings.step_1_text | default: 'Take 1 level scoop (5g)' }}</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step reveal stagger-3" data-step="2">
+        <div class="step__circle">
+          <svg class="circle-border" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="38" />
+          </svg>
+          <span class="step__number">2</span>
+        </div>
+        <div class="step__icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="12" y="8" width="16" height="24" rx="2"/>
+            <path d="M16 16 h8"/>
+            <path d="M12 32 L28 32"/>
+          </svg>
+        </div>
+        <h3 class="step__title">{{ section.settings.step_2_title | default: 'Mix' }}</h3>
+        <p class="step__text">{{ section.settings.step_2_text | default: 'Add to 250ml of water, juice, or your protein shake' }}</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step reveal stagger-5" data-step="3">
+        <div class="step__circle">
+          <svg class="circle-border" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="38" />
+          </svg>
+          <span class="step__number">3</span>
+        </div>
+        <div class="step__icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="14" y="6" width="12" height="28" rx="4"/>
+            <path d="M10 12 L14 12"/>
+            <path d="M26 12 L30 12"/>
+            <path d="M10 8 L14 10"/>
+            <path d="M26 10 L30 8"/>
+          </svg>
+        </div>
+        <h3 class="step__title">{{ section.settings.step_3_title | default: 'Shake' }}</h3>
+        <p class="step__text">{{ section.settings.step_3_text | default: '30 seconds and done. No grit, no clumps.' }}</p>
+      </div>
+    </div>
+
+    <p class="how-to-use__note reveal stagger-6">
+      {{ section.settings.bottom_note | default: 'Mixes easily with water, juice, protein shakes, or smoothies. Take daily for best results. No loading phase required.' }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How to Use",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Simple. Effective. Daily."
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Step 1 Title",
+      "default": "Scoop"
+    },
+    {
+      "type": "text",
+      "id": "step_1_text",
+      "label": "Step 1 Text",
+      "default": "Take 1 level scoop (5g)"
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Step 2 Title",
+      "default": "Mix"
+    },
+    {
+      "type": "text",
+      "id": "step_2_text",
+      "label": "Step 2 Text",
+      "default": "Add to 250ml of water, juice, or your protein shake"
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Step 3 Title",
+      "default": "Shake"
+    },
+    {
+      "type": "text",
+      "id": "step_3_text",
+      "label": "Step 3 Text",
+      "default": "30 seconds and done. No grit, no clumps."
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_note",
+      "label": "Bottom Note",
+      "default": "Mixes easily with water, juice, protein shakes, or smoothies. Take daily for best results. No loading phase required."
+    }
+  ],
+  "presets": [
+    {
+      "name": "How to Use"
+    }
+  ]
+}
+{% endschema %}

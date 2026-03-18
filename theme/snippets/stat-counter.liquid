@@ -1,0 +1,9 @@
+{% comment %}
+  Stat Counter Snippet
+  Usage: {% render 'stat-counter', value: 120, label: 'Servings', suffix: '' %}
+{% endcomment %}
+
+<div class="stat-item reveal">
+  <div class="stat-item__number" data-count="{{ value }}">0{{ suffix }}</div>
+  <div class="stat-item__label">{{ label }}</div>
+</div>

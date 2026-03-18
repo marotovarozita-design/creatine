@@ -1,0 +1,120 @@
+<section class="hero section" id="hero-section" aria-label="Hero">
+  <!-- Full-bleed background image -->
+  <div class="hero__bg">
+    <img
+      src="{{ 'hero-bg.png' | asset_url }}"
+      alt="Vitali8 Creatine Monohydrate on gym bench with city skyline"
+      width="1920"
+      height="1080"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+
+  <!-- Dark overlay + bottom gradient fade -->
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__inner container">
+    <div class="hero__content">
+      <h1 class="hero__title heading-xl">
+        <span class="word">{{ section.settings.heading_word_1 | default: 'PURE' }}</span>
+        <span class="word">{{ section.settings.heading_word_2 | default: 'CREATINE.' }}</span>
+        <br>
+        <span class="word">{{ section.settings.heading_word_3 | default: 'REAL' }}</span>
+        <span class="word">{{ section.settings.heading_word_4 | default: 'RESULTS.' }}</span>
+      </h1>
+      <p class="hero__subtitle">{{ section.settings.subheading | default: '600g | 120 Servings | 100% Creatine Monohydrate | 5g Per Scoop' }}</p>
+      <div class="hero__cta">
+        <a href="#product-section" class="btn btn--primary btn--large">{{ section.settings.cta_text | default: 'SHOP NOW' }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Strip -->
+<div class="trust-strip" id="trustStrip">
+  <div class="trust-strip__inner">
+    {% render 'trust-badge', icon: 'uk', text: section.settings.trust_1 | default: 'UK Manufactured' %}
+    {% render 'trust-badge', icon: 'lab', text: section.settings.trust_2 | default: 'Lab Tested for Purity' %}
+    {% render 'trust-badge', icon: 'leaf', text: section.settings.trust_3 | default: 'No Fillers. No Fluff.' %}
+    {% render 'trust-badge', icon: 'vegan', text: section.settings.trust_4 | default: 'Vegan Friendly' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_word_1",
+      "label": "Heading Word 1",
+      "default": "PURE"
+    },
+    {
+      "type": "text",
+      "id": "heading_word_2",
+      "label": "Heading Word 2",
+      "default": "CREATINE."
+    },
+    {
+      "type": "text",
+      "id": "heading_word_3",
+      "label": "Heading Word 3",
+      "default": "REAL"
+    },
+    {
+      "type": "text",
+      "id": "heading_word_4",
+      "label": "Heading Word 4",
+      "default": "RESULTS."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "600g | 120 Servings | 100% Creatine Monohydrate | 5g Per Scoop"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_bg",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "text",
+      "id": "trust_1",
+      "label": "Trust Badge 1",
+      "default": "UK Manufactured"
+    },
+    {
+      "type": "text",
+      "id": "trust_2",
+      "label": "Trust Badge 2",
+      "default": "Lab Tested for Purity"
+    },
+    {
+      "type": "text",
+      "id": "trust_3",
+      "label": "Trust Badge 3",
+      "default": "No Fillers. No Fluff."
+    },
+    {
+      "type": "text",
+      "id": "trust_4",
+      "label": "Trust Badge 4",
+      "default": "Vegan Friendly"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

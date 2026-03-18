@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "benefits": {
+      "type": "benefits",
+      "settings": {}
+    },
+    "product-detail": {
+      "type": "product-detail",
+      "settings": {}
+    },
+    "how-to-use": {
+      "type": "how-to-use",
+      "settings": {}
+    },
+    "why-creatine": {
+      "type": "why-creatine",
+      "settings": {}
+    },
+    "who-is-it-for": {
+      "type": "who-is-it-for",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "ingredients",
+      "settings": {}
+    },
+    "brand-story": {
+      "type": "brand-story",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "email-capture": {
+      "type": "email-capture",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "benefits",
+    "product-detail",
+    "how-to-use",
+    "why-creatine",
+    "who-is-it-for",
+    "ingredients",
+    "brand-story",
+    "reviews",
+    "faq",
+    "email-capture"
+  ]
+}

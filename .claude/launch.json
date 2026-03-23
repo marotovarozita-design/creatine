@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "vitali8-preview",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["preview/server.js"],
+      "runtimeExecutable": "/usr/bin/ruby",
+      "runtimeArgs": ["/Users/rozitamarotova/Desktop/Shopify-Build/preview/server.rb"],
       "port": 3000
     }
   ]

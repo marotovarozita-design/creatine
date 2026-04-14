@@ -1,0 +1,22 @@
+{% comment %}
+  Trust Badge Snippet
+  Usage: {% render 'trust-badge', icon: 'uk', text: 'UK Manufactured' %}
+{% endcomment %}
+
+<div class="trust-badge">
+  <div class="trust-badge__icon" aria-hidden="true">
+    {% case icon %}
+      {% when 'uk' %}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      {% when 'lab' %}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v7l5 8H4l5-8V3z"/><line x1="9" y1="3" x2="15" y2="3"/></svg>
+      {% when 'leaf' %}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 18"/><path d="M17 8c3-1.38 5-4 5-7-3 0-5.62 2-7 5"/><path d="M17 8c-4 0-8 4-8 8"/></svg>
+      {% when 'vegan' %}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 12L22 2"/><path d="M16 2h6v6"/></svg>
+      {% else %}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+    {% endcase %}
+  </div>
+  <span class="trust-badge__text">{{ text }}</span>
+</div>

@@ -1,0 +1,224 @@
+<section class="cart-page section section--deep" id="cart-section" aria-label="Shopping Cart">
+  <div class="container">
+    <h1 class="heading-lg" style="margin-bottom: 40px;">Your Cart</h1>
+
+    {% if cart.item_count > 0 %}
+
+      <!-- Volume Discount Banner -->
+      <div class="volume-discount" id="volumeDiscount">
+        <div class="volume-discount__tier{% if cart.item_count == 1 %} volume-discount__tier--active{% endif %}" data-tier="1">
+          <span class="volume-discount__qty">1 Tub</span>
+          <span class="volume-discount__label">Standard</span>
+          <span class="volume-discount__price">&pound;19.99</span>
+        </div>
+        <div class="volume-discount__tier{% if cart.item_count == 2 %} volume-discount__tier--active{% endif %}" data-tier="2">
+          <span class="volume-discount__qty">2 Tubs</span>
+          <span class="volume-discount__label">Save 10%</span>
+          <span class="volume-discount__price">&pound;17.99 <small>each</small></span>
+        </div>
+        <div class="volume-discount__tier{% if cart.item_count >= 3 %} volume-discount__tier--active{% endif %}" data-tier="3">
+          <span class="volume-discount__qty">3 Tubs</span>
+          <span class="volume-discount__label">Save 20%</span>
+          <span class="volume-discount__price">&pound;15.99 <small>each</small></span>
+        </div>
+      </div>
+
+      <!-- Cart Items -->
+      <div class="cart-items">
+        {% for item in cart.items %}
+          <div class="cart-item glass-card">
+            <div class="cart-item__image">
+              <img
+                src="{{ item.image | image_url: width: 120 }}"
+                alt="{{ item.title | escape }}"
+                width="120"
+                height="120"
+                loading="lazy"
+              >
+            </div>
+            <div class="cart-item__details">
+              <h3 class="cart-item__title">{{ item.product.title }}</h3>
+              <p class="cart-item__variant text-muted">{{ item.variant.title | replace: 'Default Title', '' }}</p>
+              <div class="cart-item__quantity">
+                <div class="quantity-selector">
+                  <button class="quantity-selector__btn" data-action="minus" data-key="{{ item.key }}" aria-label="Decrease quantity">-</button>
+                  <div class="quantity-selector__value">{{ item.quantity }}</div>
+                  <button class="quantity-selector__btn" data-action="plus" data-key="{{ item.key }}" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="cart-item__price">
+              <span class="cart-item__price-current" data-item-price>&pound;{{ item.original_line_price | money_without_currency }}</span>
+              <button class="cart-item__remove" data-key="{{ item.key }}" aria-label="Remove item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Order Summary -->
+      <div class="cart-summary glass-card">
+        <div class="cart-summary__row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">&pound;{{ cart.total_price | money_without_currency }}</span>
+        </div>
+        <div class="cart-summary__savings" id="cartSavings" style="display: none;">
+          <span>YOU SAVE</span>
+          <span id="cartSavingsAmount">&pound;0.00</span>
+        </div>
+        <div class="cart-summary__row cart-summary__row--total">
+          <span>Total</span>
+          <span id="cartTotal">&pound;{{ cart.total_price | money_without_currency }}</span>
+        </div>
+        <p class="cart-summary__shipping-note">Prices shown in GBP. Ships to all European countries.</p>
+        <a href="/checkout" class="btn btn--primary btn--full btn--large" style="margin-top: 20px;">CHECKOUT</a>
+        <p class="cart-summary__delivery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Free UK Delivery
+        </p>
+      </div>
+
+      <!-- Upsell Strip -->
+      <div class="cart-upsell">
+        <h2 class="cart-upsell__title">You Might Also Like</h2>
+        <div class="cart-upsell__product glass-card">
+          <div class="cart-upsell__image">
+            <img
+              src="{{ 'product-hero.jpg' | asset_url }}"
+              alt="Vitali8 Creatine Monohydrate Powder 600g"
+              width="100"
+              height="100"
+              loading="lazy"
+            >
+          </div>
+          <div class="cart-upsell__info">
+            <h3 class="cart-upsell__name">{{ section.settings.upsell_name | default: 'Vitali8 Creatine Monohydrate Powder 600g' }}</h3>
+            <p class="cart-upsell__desc text-muted">{{ section.settings.upsell_desc | default: '120 servings of pure, micronised creatine monohydrate.' }}</p>
+            <span class="cart-upsell__price">&pound;{{ section.settings.upsell_price | default: '19.99' }}</span>
+          </div>
+          <div class="cart-upsell__action">
+            <button class="btn btn--outline btn--small" id="upsellAddBtn" type="button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    {% else %}
+
+      <!-- Empty Cart -->
+      <div class="cart-empty">
+        <p class="heading-sm text-muted" style="margin-bottom: 24px;">Your cart is empty</p>
+        <a href="/" class="btn btn--primary">Continue Shopping</a>
+      </div>
+
+    {% endif %}
+  </div>
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  const BASE_PRICE = 19.99;
+  const TIERS = { 1: 1.0, 2: 0.90, 3: 0.80 };
+
+  function getTierDiscount(qty) {
+    if (qty >= 3) return TIERS[3];
+    if (qty >= 2) return TIERS[2];
+    return TIERS[1];
+  }
+
+  function updateVolumeDisplay(qty) {
+    const tiers = document.querySelectorAll('.volume-discount__tier');
+    tiers.forEach(tier => {
+      const tierNum = parseInt(tier.getAttribute('data-tier'), 10);
+      tier.classList.toggle('volume-discount__tier--active',
+        (tierNum === 1 && qty === 1) ||
+        (tierNum === 2 && qty === 2) ||
+        (tierNum === 3 && qty >= 3)
+      );
+    });
+
+    const discount = getTierDiscount(qty);
+    const perTub = (BASE_PRICE * discount);
+    const total = perTub * qty;
+    const fullPrice = BASE_PRICE * qty;
+    const savings = fullPrice - total;
+
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const totalEl = document.getElementById('cartTotal');
+    const savingsEl = document.getElementById('cartSavings');
+    const savingsAmountEl = document.getElementById('cartSavingsAmount');
+
+    if (subtotalEl) subtotalEl.textContent = '\u00A3' + total.toFixed(2);
+    if (totalEl) totalEl.textContent = '\u00A3' + total.toFixed(2);
+
+    if (savings > 0 && savingsEl && savingsAmountEl) {
+      savingsEl.style.display = 'flex';
+      savingsAmountEl.textContent = '\u00A3' + savings.toFixed(2);
+    } else if (savingsEl) {
+      savingsEl.style.display = 'none';
+    }
+  }
+
+  // Init: read current quantity from cart items
+  const qtyEls = document.querySelectorAll('.cart-item .quantity-selector__value');
+  let totalQty = 0;
+  qtyEls.forEach(el => { totalQty += parseInt(el.textContent, 10) || 0; });
+  if (totalQty > 0) updateVolumeDisplay(totalQty);
+
+  // Quantity buttons in cart
+  document.querySelectorAll('.cart-item .quantity-selector__btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const action = this.getAttribute('data-action');
+      const valueEl = this.closest('.quantity-selector').querySelector('.quantity-selector__value');
+      let qty = parseInt(valueEl.textContent, 10) || 1;
+
+      if (action === 'plus') qty++;
+      if (action === 'minus' && qty > 1) qty--;
+      valueEl.textContent = qty;
+
+      // Recalculate total qty across all items
+      let newTotal = 0;
+      document.querySelectorAll('.cart-item .quantity-selector__value').forEach(el => {
+        newTotal += parseInt(el.textContent, 10) || 0;
+      });
+
+      // Update per-item price display
+      const priceEl = this.closest('.cart-item').querySelector('[data-item-price]');
+      if (priceEl) {
+        const discount = getTierDiscount(newTotal);
+        priceEl.textContent = '\u00A3' + (BASE_PRICE * discount * qty).toFixed(2);
+      }
+
+      updateVolumeDisplay(newTotal);
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [
+    {
+      "type": "text",
+      "id": "upsell_name",
+      "label": "Upsell Product Name",
+      "default": "Vitali8 Creatine Monohydrate Powder 600g"
+    },
+    {
+      "type": "text",
+      "id": "upsell_desc",
+      "label": "Upsell Description",
+      "default": "120 servings of pure, micronised creatine monohydrate."
+    },
+    {
+      "type": "text",
+      "id": "upsell_price",
+      "label": "Upsell Price",
+      "default": "19.99"
+    }
+  ]
+}
+{% endschema %}

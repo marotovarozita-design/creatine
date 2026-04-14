@@ -1,0 +1,434 @@
+/* ========================================
+   VITALI8 - Base Styles
+   Reset, Variables, Global Styles
+   ======================================== */
+
+/* CSS Custom Properties */
+:root {
+  /* Brand Colors */
+  --purple: #6B21A8;
+  --purple-light: #8B5CF6;
+  --purple-glow: rgba(107, 33, 168, 0.4);
+  --purple-dark: #4C1D95;
+  --black: #192126;
+  --black-deep: #0A0D10;
+  --black-card: #1A1F2E;
+  --white: #FFFFFF;
+  --white-muted: #A1A1AA;
+
+  /* Gradients */
+  --gradient-purple: linear-gradient(135deg, #6B21A8 0%, #8B5CF6 50%, #6B21A8 100%);
+  --gradient-dark: linear-gradient(180deg, #0A0D10 0%, #192126 100%);
+
+  /* Shadows */
+  --glow-purple: 0 0 30px rgba(107, 33, 168, 0.3), 0 0 60px rgba(107, 33, 168, 0.1);
+  --glow-purple-intense: 0 0 40px rgba(107, 33, 168, 0.5), 0 0 80px rgba(107, 33, 168, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --section-padding: clamp(60px, 10vw, 120px);
+  --container-max: 1280px;
+  --container-wide: 1440px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.33, 1, 0.68, 1);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-med: 0.4s var(--ease-out-expo);
+  --transition-slow: 0.6s var(--ease-out-expo);
+
+  /* Z-index scale */
+  --z-base: 1;
+  --z-cards: 10;
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-cursor: 9999;
+}
+
+/* ========================================
+   Reset
+   ======================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--white);
+  background-color: var(--black-deep);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+/* ========================================
+   Global Utilities
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+  contain: layout style paint;
+}
+
+.section--dark,
+.section--deep,
+.section--contrast {
+  background-color: var(--black-deep);
+}
+
+/* Typography Utilities */
+.heading-xl {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.heading-lg {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.heading-md {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.heading-sm {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.text-muted {
+  color: var(--white-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-purple {
+  color: var(--purple-light);
+}
+
+/* ========================================
+   Button Styles
+   ======================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255,255,255,0.3) 0%, transparent 60%);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s, transform 0.4s;
+  pointer-events: none;
+}
+
+.btn.ripple::after {
+  opacity: 1;
+  transform: scale(2.5);
+}
+
+.btn--primary {
+  background: var(--gradient-purple);
+  color: var(--white);
+  box-shadow: var(--glow-purple);
+}
+
+.btn--primary:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glow-purple-intense);
+  background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 50%, #7C3AED 100%);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--purple);
+  box-shadow: none;
+}
+
+.btn--outline:hover {
+  background: var(--purple);
+  transform: scale(1.05);
+  box-shadow: var(--glow-purple);
+}
+
+.btn--white {
+  background: var(--white);
+  color: var(--purple);
+}
+
+.btn--white:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.btn--small {
+  padding: 10px 24px;
+  font-size: 0.875rem;
+}
+
+.btn--large {
+  padding: 20px 56px;
+  font-size: 1.125rem;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* ========================================
+   Glass Card
+   ======================================== */
+.glass-card {
+  background: rgba(26, 31, 46, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(107, 33, 168, 0.2);
+  border-radius: 12px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--glow-purple);
+  border-color: rgba(107, 33, 168, 0.5);
+}
+
+/* ========================================
+   Scroll Progress Bar
+   ======================================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--gradient-purple);
+  z-index: calc(var(--z-nav) + 1);
+  transition: none;
+  pointer-events: none;
+}
+
+/* ========================================
+   Custom Cursor
+   ======================================== */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--purple-light);
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--purple-light);
+  opacity: 0.5;
+  transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), opacity 0.3s;
+}
+
+.cursor-ring.expanded {
+  width: 56px;
+  height: 56px;
+  opacity: 0.3;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   Loading Screen
+   ======================================== */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--black-deep);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader__logo {
+  width: 120px;
+  opacity: 0;
+  transform: scale(1.2);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  .loader {
+    display: none !important;
+  }
+
+  .scroll-progress {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--purple-light);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   Selection
+   ======================================== */
+::selection {
+  background: var(--purple);
+  color: var(--white);
+}
+
+/* ========================================
+   Responsive Breakpoints Reference
+   375px  - Mobile S
+   428px  - Mobile L
+   768px  - Tablet
+   1024px - Desktop S
+   1440px - Desktop L
+   ======================================== */

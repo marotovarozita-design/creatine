@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ page_title | default: shop.name }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {%- endif -%}
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ canonical_url }}">
+  {% if page_description %}
+    <meta property="og:description" content="{{ page_description | escape }}">
+  {% endif %}
+  {% if settings.og_image %}
+    <meta property="og:image" content="{{ settings.og_image | image_url: width: 1200 }}">
+  {% endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  {% if page_description %}
+    <meta name="twitter:description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'sections.css' | asset_url | stylesheet_tag }}
+  {{ 'animations.css' | asset_url | stylesheet_tag }}
+
+  <!-- Product Structured Data -->
+  {% if template.name == 'index' or template.name == 'product' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Vitali8 Creatine Monohydrate Powder 600g",
+    "description": "120 servings of pure creatine monohydrate. 5g per scoop for strength, recovery, and energy. Micronised for fast absorption. Made in the UK. Vegan friendly.",
+    "image": "{{ 'product-hero.jpg' | asset_url }}",
+    "brand": {
+      "@type": "Brand",
+      "name": "Vitali8"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "{{ canonical_url }}",
+      "priceCurrency": "GBP",
+      "price": "19.99",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Vitali8"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "30",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+  {% endif %}
+
+  <!-- No-JS fallback -->
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+  {{ content_for_header }}
+</head>
+<body>
+  <a href="#main-content" class="sr-only">Skip to content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <img class="loader__logo" src="{{ 'logo-white.png' | asset_url }}" alt="" width="120" height="auto">
+  </div>
+
+  <!-- Header -->
+  {% section 'header' %}
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#product-section" class="mobile-menu__link">Shop</a>
+    <a href="#benefits-section" class="mobile-menu__link">Benefits</a>
+    <a href="#why-section" class="mobile-menu__link">Why Creatine</a>
+    <a href="#faq-section" class="mobile-menu__link">FAQ</a>
+    <a href="#product-section" class="btn btn--primary btn--small">Shop Now</a>
+  </div>
+
+  <main id="main-content" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Custom JS -->
+  <script src="{{ 'hero-particles.js' | asset_url }}" defer></script>
+  <script src="{{ 'three-product.js' | asset_url }}" defer></script>
+  <script src="{{ 'interactive.js' | asset_url }}" defer></script>
+</body>
+</html>

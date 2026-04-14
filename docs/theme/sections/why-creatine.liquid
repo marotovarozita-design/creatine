@@ -1,0 +1,80 @@
+<section class="why-creatine section section--deep" id="why-section" aria-label="Why Creatine">
+  <!-- Background Grid -->
+  <div class="why-creatine__grid-bg anim-grid-move" aria-hidden="true"></div>
+
+  <div class="container why-creatine__content">
+    <!-- Slide 1: Big Statement -->
+    <div class="why-creatine__slide reveal">
+      <h2 class="heading-lg why-creatine__headline heading-animate">
+        {{ section.settings.headline | default: 'The Most Researched Supplement in Sports Nutrition' }}
+      </h2>
+    </div>
+
+    <!-- Slide 2: ATP Diagram -->
+    <div class="why-creatine__slide reveal">
+      <div class="why-creatine__diagram">
+        <div class="atp-cycle">
+          <div class="atp-node atp-node--atp">ATP</div>
+          <div class="atp-arrow reveal stagger-1">&#8594;</div>
+          <div class="atp-node atp-node--adp">ADP</div>
+          <div class="atp-arrow reveal stagger-2">&#8594;</div>
+          <div class="atp-node atp-node--atp">ATP</div>
+        </div>
+        <p class="atp-label reveal stagger-3">
+          {{ section.settings.atp_text | default: 'Creatine replenishes phosphocreatine stores, enabling your muscles to regenerate ATP — your body\'s primary energy currency — during high-intensity exercise.' }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Slide 3: Stats -->
+    <div class="why-creatine__slide">
+      <div class="why-creatine__stats">
+        <div class="why-stat reveal stagger-1">
+          <div class="why-stat__arrow" aria-hidden="true">&#8593;</div>
+          <div class="why-stat__value" data-count="8">0%</div>
+          <div class="why-stat__label">Strength</div>
+        </div>
+        <div class="why-stat reveal stagger-2">
+          <div class="why-stat__arrow" aria-hidden="true">&#8593;</div>
+          <div class="why-stat__value" data-count="14">0%</div>
+          <div class="why-stat__label">Performance</div>
+        </div>
+        <div class="why-stat reveal stagger-3">
+          <div class="why-stat__arrow" aria-hidden="true">&#8593;</div>
+          <div class="why-stat__value">Faster</div>
+          <div class="why-stat__label">Recovery Speed</div>
+        </div>
+        <div class="why-stat reveal stagger-4">
+          <div class="why-stat__arrow" aria-hidden="true">&#8593;</div>
+          <div class="why-stat__value">Better</div>
+          <div class="why-stat__label">Cognitive Function</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Creatine",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "The Most Researched Supplement in Sports Nutrition"
+    },
+    {
+      "type": "textarea",
+      "id": "atp_text",
+      "label": "ATP Explanation",
+      "default": "Creatine replenishes phosphocreatine stores, enabling your muscles to regenerate ATP — your body's primary energy currency — during high-intensity exercise."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Creatine"
+    }
+  ]
+}
+{% endschema %}

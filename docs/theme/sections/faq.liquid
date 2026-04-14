@@ -1,0 +1,69 @@
+<section class="faq section section--dark" id="faq-section" aria-label="Frequently Asked Questions">
+  <div class="container">
+    <h2 class="heading-lg text-center reveal" style="margin-bottom: 48px;">
+      {{ section.settings.title | default: 'Frequently Asked Questions' }}
+    </h2>
+
+    <div class="faq__list">
+      {% render 'faq-item',
+        question: 'What is creatine monohydrate?',
+        answer: 'Creatine monohydrate is one of the most researched supplements in sports nutrition. It increases your body\'s phosphocreatine stores, helping regenerate ATP (your cells\' energy currency) during high-intensity exercise.',
+        index: 1
+      %}
+      {% render 'faq-item',
+        question: 'How do I take Vitali8 Creatine?',
+        answer: 'Mix one level scoop (5g) with 250ml of water, juice, or your protein shake. Shake for 30 seconds. Take once daily, before or after your workout, or at any time that suits your routine.',
+        index: 2
+      %}
+      {% render 'faq-item',
+        question: 'Do I need a loading phase?',
+        answer: 'No loading phase is required. A consistent daily 5g serving builds your creatine stores within 7-14 days. Some people choose to take 20g/day for 5 days to saturate faster, but this is optional.',
+        index: 3
+      %}
+      {% render 'faq-item',
+        question: 'Is it suitable for women?',
+        answer: 'Yes. Creatine is effective and safe for both men and women. Research consistently shows benefits for strength, recovery, and cognitive function regardless of gender.',
+        index: 4
+      %}
+      {% render 'faq-item',
+        question: 'Is it vegan?',
+        answer: 'Yes. Vitali8 Creatine Monohydrate is 100% vegan with no animal-derived ingredients.',
+        index: 5
+      %}
+      {% render 'faq-item',
+        question: 'Where is it manufactured?',
+        answer: 'Manufactured in the UK by Pro Muscle Products Supplements LTD under strict quality standards.',
+        index: 6
+      %}
+      {% render 'faq-item',
+        question: 'Will it dissolve easily?',
+        answer: 'Yes. Our creatine is micronised (ground to a finer particle size) so it dissolves quickly in liquid with no gritty texture or clumps.',
+        index: 7
+      %}
+      {% render 'faq-item',
+        question: 'Does it have a taste?',
+        answer: 'No. It is completely unflavoured, so you can add it to anything without taste interference.',
+        index: 8
+      %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ"
+    }
+  ]
+}
+{% endschema %}

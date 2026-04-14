@@ -1,0 +1,106 @@
+<section class="brand-story section" id="brand-section" aria-label="Brand Story">
+  <!-- Background Image with Parallax -->
+  <div class="brand-story__bg" data-parallax="0.5">
+    <img
+      src="{{ 'pexels-cliff-booth-4057526.jpg' | asset_url }}"
+      alt="Athletic headstand - Vitali8 brand story"
+      width="1440"
+      height="900"
+      loading="lazy"
+    >
+  </div>
+
+  <div class="brand-story__content">
+    <!-- Logo -->
+    <img
+      class="brand-story__logo reveal-scale"
+      src="{{ 'logo-white.png' | asset_url }}"
+      alt="Vitali8"
+      width="80"
+      height="80"
+      loading="lazy"
+    >
+
+    <!-- Top Divider -->
+    <div class="brand-story__divider divider-draw" aria-hidden="true"></div>
+
+    <!-- Title -->
+    <h2 class="heading-lg brand-story__title">
+      <span class="word">{{ section.settings.title_word_1 | default: 'Built' }}</span>
+      <span class="word">{{ section.settings.title_word_2 | default: 'by' }}</span>
+      <span class="word">{{ section.settings.title_word_3 | default: 'Athletes.' }}</span>
+      <br>
+      <span class="word">{{ section.settings.title_word_4 | default: 'Powered' }}</span>
+      <span class="word">{{ section.settings.title_word_5 | default: 'by' }}</span>
+      <span class="word">{{ section.settings.title_word_6 | default: 'Purity.' }}</span>
+    </h2>
+
+    <!-- Body -->
+    <p class="brand-story__body reveal">
+      {{ section.settings.body | default: 'Vitali8 was created by everyday athletes who care deeply about what they put in their bodies. Tired of confusing labels and weak formulas, we built a brand rooted in clean, effective, and transparent sports nutrition.' }}
+    </p>
+
+    <!-- Bottom Divider -->
+    <div class="brand-story__divider-bottom divider-draw" aria-hidden="true"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_word_1",
+      "label": "Title Word 1",
+      "default": "Built"
+    },
+    {
+      "type": "text",
+      "id": "title_word_2",
+      "label": "Title Word 2",
+      "default": "by"
+    },
+    {
+      "type": "text",
+      "id": "title_word_3",
+      "label": "Title Word 3",
+      "default": "Athletes."
+    },
+    {
+      "type": "text",
+      "id": "title_word_4",
+      "label": "Title Word 4",
+      "default": "Powered"
+    },
+    {
+      "type": "text",
+      "id": "title_word_5",
+      "label": "Title Word 5",
+      "default": "by"
+    },
+    {
+      "type": "text",
+      "id": "title_word_6",
+      "label": "Title Word 6",
+      "default": "Purity."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body Text",
+      "default": "Vitali8 was created by everyday athletes who care deeply about what they put in their bodies. Tired of confusing labels and weak formulas, we built a brand rooted in clean, effective, and transparent sports nutrition."
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Story"
+    }
+  ]
+}
+{% endschema %}

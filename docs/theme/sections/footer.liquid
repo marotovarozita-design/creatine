@@ -1,0 +1,81 @@
+<footer class="site-footer" aria-label="Footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="/" class="footer__logo" aria-label="{{ shop.name }}">
+        <img src="{{ 'logo-white.png' | asset_url }}" alt="{{ shop.name }}" width="140" height="48" loading="lazy">
+      </a>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="#product-section">Shop</a>
+        <a href="#brand-section">About</a>
+        <a href="#faq-section">FAQ</a>
+        <a href="mailto:hello@vitali8.co.uk">Contact</a>
+      </nav>
+
+      <div class="footer__socials">
+        <!-- Instagram -->
+        <a href="#" class="footer__social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="#" class="footer__social-icon" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+          </svg>
+        </a>
+        <!-- Twitter/X -->
+        <a href="#" class="footer__social-icon" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4l11.733 16h4.267l-11.733 -16z"/>
+            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <p class="footer__teaser">
+      {{ section.settings.teaser | default: 'New products coming soon. Stay tuned.' }}
+    </p>
+
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        <a href="/policies/terms-of-service">Terms</a>
+        <a href="/policies/privacy-policy">Privacy Policy</a>
+      </div>
+      <p class="footer__copyright">&copy; 2026 {{ shop.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "teaser",
+      "label": "Teaser Text",
+      "default": "New products coming soon. Stay tuned."
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter/X URL"
+    }
+  ]
+}
+{% endschema %}

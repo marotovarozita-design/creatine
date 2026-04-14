@@ -1,0 +1,23 @@
+{
+  "general": {
+    "skip_to_content": "Skip to content",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "products": {
+    "add_to_cart": "Add to Cart",
+    "added_to_cart": "Added",
+    "quantity": "Quantity",
+    "price": "Price"
+  },
+  "newsletter": {
+    "email_placeholder": "Enter your email",
+    "submit": "Join the Waitlist",
+    "success": "You're in!"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "increase_quantity": "Increase quantity",
+    "decrease_quantity": "Decrease quantity"
+  }
+}

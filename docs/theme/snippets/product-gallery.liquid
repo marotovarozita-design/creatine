@@ -1,0 +1,16 @@
+{% comment %}
+  Product Gallery Snippet (alternative usage)
+{% endcomment %}
+
+<div class="product-gallery">
+  <div class="product-gallery__main anim-float">
+    <img
+      id="mainProductImage"
+      src="{{ image | default: 'product-hero.jpg' | asset_url }}"
+      alt="{{ alt | default: 'Vitali8 Creatine Monohydrate Powder' }}"
+      width="600"
+      height="600"
+      loading="lazy"
+    >
+  </div>
+</div>
